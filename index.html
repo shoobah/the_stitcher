@@ -1,12 +1,68 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <!-- Materialize -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
   </head>
   <body>
-    <div id="navBar"></div>
-    <div id="home"></div>
-    <div id="angularJS"></div>
-    <!-- import the single-spa config file -->
-    <script src="/dist/single-spa.config.js"></script>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@portal/config": "http://localhost:8081/dist/single-spa.config.js",
+          "@portal/andersSvelter": "http://localhost:51155/build/bundle.js",
+          "@portal/createMeeting": "http://172.28.0.166:4200/main.js",
+          "@portal/kent": "http://172.28.0.170:1234/src.a2b27638.js"
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/systemjs@4.1.0/dist/system.js"></script>
+    <script src="https://unpkg.com/systemjs@4.1.0/dist/extras/amd.js"></script>
+    <script src="https://unpkg.com/systemjs@4.1.0/dist/extras/named-exports.js"></script>
+    <script src="https://unpkg.com/systemjs@4.1.0/dist/extras/use-default.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/zone.js/dist/zone.min.js"></script>
+
+    <!-- Load the common deps-->
+    <script src="http://localhost:8081/common-deps.js"></script>
+
+    <!-- Load the application -->
+    <script>
+      System.import("@portal/config");
+    </script>
+
+    <!-- Static navbar -->
+    <link rel="stylesheet" href="http://localhost:51155/build/bundle.css" />
+
+    <style>
+      .item-a {
+        grid-area: header;
+      }
+      .item-b {
+        grid-area: main;
+      }
+      .item-c {
+        grid-area: sidebar;
+      }
+      .item-d {
+        grid-area: footer;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 50px 50px 50px 50px;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "header header header header"
+          "main main . sidebar"
+          "footer footer footer footer";
+      }
+    </style>
+
+    <div class="container">
+      <div class="item-a">a</div>
+      <div class="item-b"><div id="andersSvelter"></div></div>
+      <div class="item-c" id="meeting-list"></div>
+      <div class="item-d" id="meeting-detail">f</div>
+    </div>
   </body>
 </html>
