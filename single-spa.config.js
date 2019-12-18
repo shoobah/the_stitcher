@@ -14,9 +14,9 @@ singleSpa.registerApplication(
 );
 
 singleSpa.registerApplication(
-  "kent",
-  () => SystemJS.import("@portal/kent"),
-  isActive.kent
+  "meetings",
+  () => SystemJS.import("@portal/meetings"),
+  isActive.meetings
 );
 
 singleSpa.start();

@@ -12,10 +12,10 @@ export function navigation(location) {
   return true;
 }
 
-export function kent(location) {
-  return prefix(location, "kent");
+export function meetings(location) {
+  return prefix(location, "Meetings");
 }
 
 export function create(location) {
-  return prefix(location, "createMeeting");
+  return prefix(location, "CreateMeeting");
 }
