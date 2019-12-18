@@ -14,7 +14,7 @@ singleSpa.registerApplication(
 );
 
 singleSpa.registerApplication(
-  "meetings",
+  "meetings-overview",
   () => SystemJS.import("@portal/meetings"),
   isActive.meetings
 );
